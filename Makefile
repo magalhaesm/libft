@@ -1,0 +1,38 @@
+LIBFT		= libft
+SRCS		= tests/srcs
+OBJS		= tests/objs
+UTIL_SRC	= $(wildcard tests/utils/*.c)
+UTIL_OBJ	= $(subst tests/utils, $(OBJS), $(UTIL_SRC:.c=.o))
+
+CC			= gcc
+CFLAGS		= -g -Wall -Wextra -Werror
+RM			= rm -f
+
+MANDATORY	= isalpha
+
+all: $(MANDATORY) clean
+
+$(MANDATORY):	%:	$(OBJS)/ft_%.o $(OBJS)/test_ft_%.o $(UTIL_OBJ)
+		@$(CC) $(CFLAGS) $^ -o $@
+		@./$(MANDATORY)
+
+$(OBJS)/ft_%.o:	$(LIBFT)/ft_%.c
+		@mkdir -p $(OBJS)
+		@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJS)/test_ft_%.o:	$(SRCS)/test_ft_%.c
+		@mkdir -p $(OBJS)
+		@$(CC) $(CFLAGS) -c $< -o $@
+
+$(UTIL_OBJ):	$(UTIL_SRC)
+		@$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+		@file * | grep ELF | cut -d ':' -f1 | xargs $(RM)
+
+fclean:	clean
+		@$(RM) -r $(OBJS)
+
+re:		fclean all
+
+.PHONY:		all clean fclean re
