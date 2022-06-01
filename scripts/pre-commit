@@ -8,13 +8,12 @@
 RESET='\033[m'
 YELLOW='\033[1;33m'
 
-stop_commit() {
-  echo -en "${YELLOW}COMMIT REJECTED${RESET}"
-  echo -e ': norm error!'
+stop_message() {
+  echo -e "${YELLOW}COMMIT REJECTED${RESET}: norm error!"
 }
 
-check_norm () {
-  norminette "$1" | grep -q 'Error!' && stop_commit
+check_norm_error () {
+  norminette "$1" | grep -q 'Error!' && stop_message
 }
 
 main() {
@@ -23,7 +22,7 @@ main() {
     filename=$(basename "$file")
     case "$filename" in
       ft_*.c | ft_*.h | libft.h)
-        check_norm "$file" && exit 1
+        check_norm_error "$file" && exit 1
       ;;
     esac
   done
