@@ -8,13 +8,13 @@ CC			= gcc
 CFLAGS		= -g -Wall -Wextra -Werror
 RM			= rm -f
 
-MANDATORY	= isalpha
+MANDATORY	= isalpha toupper
 
 all: $(MANDATORY) clean
 
 $(MANDATORY):	%:	$(OBJS)/ft_%.o $(OBJS)/test_ft_%.o $(UTIL_OBJ)
 		@$(CC) $(CFLAGS) $^ -o $@
-		@./$(MANDATORY)
+		@./$@
 
 $(OBJS)/ft_%.o:	$(LIBFT)/ft_%.c
 		@mkdir -p $(OBJS)
