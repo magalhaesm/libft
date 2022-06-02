@@ -1,7 +1,7 @@
 #include "../utils/tester.h"
 #include "ctype.h"
 
-static void	test_decimal_digit(void)
+void	test_decimal_digit(void)
 {
 	int	result;
 	int	expected;
@@ -11,10 +11,21 @@ static void	test_decimal_digit(void)
 	ASSERT_EXPR(result && expected);
 }
 
+void	test_non_digit(void)
+{
+	int	result;
+	int	expected;
+
+	result = ft_isdigit('A');
+	expected = isdigit('A');
+	ASSERT_EXPR((result || expected) == 0);
+}
+
 int	main(void)
 {
 	t_unit_test tests[] = {
 		UNIT_TEST(test_decimal_digit),
+		UNIT_TEST(test_non_digit),
 	};
 	RUN_GROUP(tests);
 }
