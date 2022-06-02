@@ -8,7 +8,7 @@ CC			= gcc
 CFLAGS		= -g -Wall -Wextra -Werror
 RM			= rm -f
 
-MANDATORY	= isalpha toupper isdigit
+MANDATORY	= isalpha toupper isdigit tolower
 
 all: $(MANDATORY) clean
 
