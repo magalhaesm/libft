@@ -21,11 +21,22 @@ void	test_lowercase_character(void)
 	ASSERT_EXPR(result == expected);
 }
 
+void	test_non_printable_character(void)
+{
+	int	result;
+	int	expected;
+
+	result = ft_tolower(-10);
+	expected = tolower(-10);
+	ASSERT_EXPR(result == expected);
+}
+
 int	main(void)
 {
 	t_unit_test tests[] = {
 		UNIT_TEST(test_uppercase_character),
 		UNIT_TEST(test_lowercase_character),
+		UNIT_TEST(test_non_printable_character),
 	};
 	return RUN_GROUP(tests);
 }
