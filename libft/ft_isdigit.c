@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 22:41:44 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/01 21:50:26 by mdias-ma         ###   ########.fr       */
+/*   Created: 2022/06/01 21:45:44 by mdias-ma          #+#    #+#             */
+/*   Updated: 2022/06/01 21:50:15 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-int	ft_isalpha(int c);
-int	ft_toupper(int c);
-int	ft_isdigit(int c);
-
-#endif
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
