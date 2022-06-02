@@ -1,2 +1,4 @@
 TODO.norg
 *.pdf
+*/objs
+*/libft.a
