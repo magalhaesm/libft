@@ -10,7 +10,7 @@ CC			= gcc
 CFLAGS		= -g -Wall -Wextra -Werror
 RM			= rm -f
 
-MANDATORY	= isalpha toupper isdigit tolower
+MANDATORY	= isalpha toupper isdigit tolower isalnum
 
 all: $(MANDATORY) clean
 
