@@ -34,14 +34,11 @@ int		run_units(t_unit_test tests[], int n_tests, char *filename)
 		.n_tests = n_tests,
 		.filename = filename,
 	};
-
-	// p_result(session);
-	print_result(&session);
-	return (EXIT_SUCCESS);
+	return print_result(&session);
 }
 
 // TODO: no modo compacto, exibir só o nome da função: ft_isalpha
-void	p_res(t_unit_test *test)
+static void	p_res(t_unit_test *test)
 {
 	if (test->failed)
 		printf("%s %s%s at line %d%s\n", FAIL_SIGN, RED, test->name, test->line, RESET);
@@ -49,7 +46,7 @@ void	p_res(t_unit_test *test)
 		printf("%s %s\n", PASS_SIGN, test->name);
 }
 
-void	print_result(t_session *s)
+int		print_result(t_session *s)
 {
 	if (s->fails)
 		printf("\n%s %s\n", FAILED, s->filename);
@@ -59,4 +56,5 @@ void	print_result(t_session *s)
 	{
 		p_res(&s->tests[i]);
 	}
+	return (s->fails);
 }

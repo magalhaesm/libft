@@ -43,10 +43,6 @@ typedef struct	s_session
 void	test_assert(int condition, int line);
 void	test_runner(t_unit_test *new_test);
 int		run_units(t_unit_test tests[], int num_tests, char *filename);
-
-void	print_result(t_session *s);
-// void	print_result(t_session session);
-void	print_pass(t_session session);
-void	print_fail(t_session session);
+int		print_result(t_session *session);
 
 #endif
