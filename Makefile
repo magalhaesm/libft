@@ -10,7 +10,8 @@ CC			= gcc
 CFLAGS		= -g -Wall -Wextra -Werror
 RM			= rm -f
 
-MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint
+MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
+						strlen
 
 all: $(MANDATORY) clean
 
