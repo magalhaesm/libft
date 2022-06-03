@@ -33,6 +33,7 @@ clean:
 
 fclean:	clean
 		@$(RM) -r $(OBJS)
+		@make fclean -C $(LIBFT) >/dev/null
 
 re:		fclean all
 
