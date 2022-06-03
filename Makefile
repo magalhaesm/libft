@@ -1,4 +1,6 @@
 LIBFT		= libft
+LIB			= $(LIBFT)/libft.a
+
 SRCS		= tests/srcs
 OBJS		= tests/objs
 UTIL_SRC	= $(wildcard tests/utils/*.c)
@@ -12,13 +14,12 @@ MANDATORY	= isalpha toupper isdigit tolower
 
 all: $(MANDATORY) clean
 
-$(MANDATORY):	%:	$(OBJS)/ft_%.o $(OBJS)/test_ft_%.o $(UTIL_OBJ)
+$(MANDATORY):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
 		@$(CC) $(CFLAGS) $^ -o $@
 		@./$@
 
-$(OBJS)/ft_%.o:	$(LIBFT)/ft_%.c
-		@mkdir -p $(OBJS)
-		@$(CC) $(CFLAGS) -c $< -o $@
+$(LIB):
+		@make -C $(LIBFT) >/dev/null
 
 $(OBJS)/test_ft_%.o:	$(SRCS)/test_ft_%.c
 		@mkdir -p $(OBJS)
