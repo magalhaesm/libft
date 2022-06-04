@@ -34,12 +34,24 @@ void	test_locate_the_first_char(void)
 	ASSERT_EXPR(result == expected);
 }
 
+void	test_return_null_for_non_existing_char(void)
+{
+	char	test[] = "Lorem ipsum dolor sit amet.";
+	char	*result;
+	char	*expected;
+
+	result = ft_strrchr(test, 'M');
+	expected = strrchr(test, 'M');
+	ASSERT_EXPR(result == expected);
+}
+
 int	main(void)
 {
 	t_unit_test tests[] = {
 		UNIT_TEST(test_locate_terminating_null),
 		UNIT_TEST(test_locate_a_existing_char),
 		UNIT_TEST(test_locate_the_first_char),
+		UNIT_TEST(test_return_null_for_non_existing_char),
 	};
 	return RUN_GROUP(tests);
 }
