@@ -7,11 +7,11 @@ UTIL_SRC	= $(wildcard tests/utils/*.c)
 UTIL_OBJ	= $(subst tests/utils, $(OBJS), $(UTIL_SRC:.c=.o))
 
 CC			= gcc
-CFLAGS		= -g -Wall -Wextra -Werror
+CFLAGS		= -g -Wall -Wextra -Werror -lbsd
 RM			= rm -f
 
 MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
-				strlen strchr strrchr strncmp
+				strlen strchr strrchr strncmp strlcpy
 
 all: $(MANDATORY) clean
 
