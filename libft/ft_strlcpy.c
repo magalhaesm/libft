@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 11:47:58 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/04 13:31:10 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:38:16 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		i++;
 	}
 	dst[i] = '\0';
-	return (i);
+	return (i + ft_strlen(&src[i]));
 }
