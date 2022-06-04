@@ -7,7 +7,7 @@ UTIL_SRC	= $(wildcard tests/utils/*.c)
 UTIL_OBJ	= $(subst tests/utils, $(OBJS), $(UTIL_SRC:.c=.o))
 
 CC			= gcc
-CFLAGS		= -g -Wall -Wextra -Werror -lbsd
+CFLAGS		= -g -Wall -Wextra -Werror
 RM			= rm -f
 
 MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
@@ -16,7 +16,7 @@ MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 all: $(MANDATORY) clean
 
 $(MANDATORY):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
-		@$(CC) $(CFLAGS) $^ -o $@
+		@$(CC) $(CFLAGS) $^ -lbsd -o $@
 		@./$@
 
 $(LIB):
