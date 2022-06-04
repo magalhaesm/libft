@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 22:07:20 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/03 22:34:34 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/03 22:59:07 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,10 @@ char	*ft_strrchr(const char *s, int c)
 	i = ft_strlen(s);
 	if (c == '\0')
 		return ((char *)&s[i]);
+	while (--i > 0)
+	{
+		if (s[i] == c)
+			return ((char *)&s[i]);
+	}
 	return (NULL);
 }
