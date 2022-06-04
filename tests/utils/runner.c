@@ -4,16 +4,20 @@ t_unit_test *g_test;
 
 void	test_assert(int condition, int line)
 {
+	if (g_test->line)
+			return;
 	if (condition == true)
 		g_test->failed = false;
 	else
+	{
+		g_test->failed = true;
 		g_test->line = line;
+	}
 }
 
 void	test_runner(t_unit_test *test)
 {
 	g_test = test;
-	g_test->failed = true;
 	test->func();
 }
 
