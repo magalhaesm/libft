@@ -11,7 +11,7 @@ CFLAGS		= -g -Wall -Wextra -Werror
 RM			= rm -f
 
 MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
-				strlen strchr strrchr strncmp strlcpy
+				strlen strchr strrchr strncmp strlcpy strlcat
 
 all: clean $(MANDATORY)
 		@make clean >/dev/null
