@@ -13,7 +13,8 @@ RM			= rm -f
 MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 				strlen strchr strrchr strncmp strlcpy
 
-all: $(MANDATORY) clean
+all: clean $(MANDATORY)
+		@make clean >/dev/null
 
 $(MANDATORY):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
 		@$(CC) $(CFLAGS) $^ -lbsd -o $@
