@@ -27,5 +27,5 @@ int	main(void)
 		UNIT_TEST(test_decimal_digit),
 		UNIT_TEST(test_non_digit),
 	};
-	RUN_GROUP(tests);
+	return RUN_GROUP(tests);
 }

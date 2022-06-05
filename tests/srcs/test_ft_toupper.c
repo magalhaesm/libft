@@ -38,5 +38,5 @@ int	main(void)
 		UNIT_TEST(test_lowercase_character),
 		UNIT_TEST(test_non_printable_character),
 	};
-	RUN_GROUP(tests);
+	return RUN_GROUP(tests);
 }
