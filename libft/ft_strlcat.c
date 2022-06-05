@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 13:47:48 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/05 16:34:10 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:32:01 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
+	size_t	dstlen;
+	size_t	srclen;
 
-	i = ft_strlen(dst);
+	srclen = ft_strlen(src);
+	dstlen = ft_strlen(dst);
+	i = dstlen;
 	j = 0;
-	while (src[j] != '\0' && i < size - 1)
+	while (j < size - dstlen - 1)
 		dst[i++] = src[j++];
 	dst[i] = '\0';
-	return (size);
+	return (srclen + dstlen);
 }
