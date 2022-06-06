@@ -10,13 +10,26 @@ void	test_locate_the_first_occurrence_of_a_char(void)
 
 	result = ft_strnstr(large, small, 7);
 	expected = strnstr(large, small, 7);
-	ASSERT_EXPR(strcmp(result, expected) == 0);
+	ASSERT_EXPR(result == expected);
+}
+
+void	test_locate_the_first_occurrence_of_a_string(void)
+{
+	const char	*large = "Foo BaR bAr BAr Bar Baz";
+	const char	*small = "Bar";
+	char	*result;
+	char	*expected;
+
+	result = ft_strnstr(large, small, 20);
+	expected = strnstr(large, small, 20);
+	ASSERT_EXPR(result == expected);
 }
 
 int	main(void)
 {
 	t_unit_test tests[] = {
 		UNIT_TEST(test_locate_the_first_occurrence_of_a_char),
+		UNIT_TEST(test_locate_the_first_occurrence_of_a_string),
 	};
 	return RUN_GROUP(tests);
 }
