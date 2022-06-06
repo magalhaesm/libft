@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:02:06 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/06 13:50:00 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/06 14:28:20 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	j = 0;
+	if (little[j] == '\0')
+		return ((char *)big);
 	while (big[i] != '\0' && i < len)
 	{
 		if (big[i + j] == little[j])
