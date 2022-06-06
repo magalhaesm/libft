@@ -37,8 +37,8 @@ void	test_return_the_size_of_the_pretended_string(void)
 void	test_handle_destination_with_no_space(void)
 {
 	const char	test[] = " ft_strlcat";
-	char	result[7] = "testing";
-	char	expected[7] = "testing";
+	char	result[] = "testing";
+	char	expected[] = "testing";
 	size_t	res_ret;
 	size_t	exp_ret;
 
