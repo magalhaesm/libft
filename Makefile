@@ -1,8 +1,8 @@
-LIBFT		= libft
-LIB			= $(LIBFT)/libft.a
+LIBFT		:= libft
+LIB			:= $(LIBFT)/libft.a
 
-SRCS		= tests/srcs
-OBJS		= tests/objs
+SRCS		:= tests/srcs
+OBJS		:= tests/objs
 UTIL_SRC	= $(wildcard tests/utils/*.c)
 UTIL_OBJ	= $(subst tests/utils, $(OBJS), $(UTIL_SRC:.c=.o))
 
@@ -11,9 +11,9 @@ CFLAGS		= -g -Wall -Wextra -Werror
 RM			= rm -f
 
 MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
-				strlen strchr strrchr strncmp strlcpy strlcat
+				strlen strchr strrchr strncmp strlcpy strlcat strnstr
 
-all: clean $(MANDATORY)
+all: $(MANDATORY)
 		@make clean >/dev/null
 
 $(MANDATORY):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
