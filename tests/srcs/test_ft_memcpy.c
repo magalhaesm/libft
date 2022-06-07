@@ -1,0 +1,22 @@
+#include "../utils/tester.h"
+#include <string.h>
+
+void	test_copy_to_memory_area(void)
+{
+	char	*test = "string de teste";
+	int		testlen = strlen(test);
+	char	result[50];
+	char	expected[50];
+
+	ft_memcpy(result, test, testlen);
+	memcpy(expected, test, testlen);
+	ASSERT_EXPR(strcmp(result, expected) == 0);
+}
+
+int	main(void)
+{
+	t_unit_test tests[] = {
+		UNIT_TEST(test_copy_to_memory_area),
+	};
+	return RUN_GROUP(tests);
+}

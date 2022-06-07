@@ -12,7 +12,7 @@ RM			= rm -f
 
 MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 				strlen strchr strrchr strncmp strlcpy strlcat strnstr \
-				memset bzero
+				memset bzero memcpy
 
 all: $(MANDATORY)
 		@make clean >/dev/null
