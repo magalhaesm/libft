@@ -15,8 +15,8 @@ void	test_locate_the_first_occurrence_of_a_char(void)
 
 void	test_locate_the_first_occurrence_of_a_string(void)
 {
-	const char	*large = "Foo BaR bAr BAr Bar Baz";
-	const char	*small = "Bar";
+	const char	*large = "gtagtatatatatatactactagtag";
+	const char	*small = "tacta";
 	char	*result;
 	char	*expected;
 

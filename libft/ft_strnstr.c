@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:02:06 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/06 14:28:20 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/07 19:48:34 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			j++;
 		else
 		{
-			i += j + 1;
+			i++;
 			j = 0;
 		}
 		if (little[j] == '\0')
-			return ((char *)&big[i]);
+			return ((char *)big + i);
 	}
 	return (NULL);
 }
