@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:55:40 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/06 15:57:29 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/08 10:35:29 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*aux;
-
-	aux = s;
-	while (n--)
-		aux[n] = '\0';
+	ft_memset(s, '\0', n);
 }
