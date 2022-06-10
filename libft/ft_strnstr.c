@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:02:06 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/10 18:40:13 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/10 18:53:34 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (little[j] == '\0')
 		return ((char *)big);
 	limit = len - ft_strlen(little);
-	while (big[i] != '\0' && i <= limit)
+	while (big[i] != '\0' && i <= limit && len)
 	{
 		if (big[i + j] == little[j])
 			j++;
