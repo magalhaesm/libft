@@ -56,6 +56,17 @@ void	test_negative_integer(void)
 	ASSERT_EXPR(result == expected);
 }
 
+void	test_integer_bigger_than_char_limit(void)
+{
+	char	test[] = "Lorem ipsum dolor sit amet.";
+	char	*result;
+	char	*expected;
+
+	result = ft_strrchr(test, 356);
+	expected = strrchr(test, 356);
+	ASSERT_EXPR(result == expected);
+}
+
 int	main(void)
 {
 	t_unit_test tests[] = {
@@ -64,6 +75,7 @@ int	main(void)
 		UNIT_TEST(test_locate_the_first_char),
 		UNIT_TEST(test_return_null_for_non_existing_char),
 		UNIT_TEST(test_negative_integer),
+		UNIT_TEST(test_integer_bigger_than_char_limit),
 	};
 	return RUN_GROUP(tests);
 }
