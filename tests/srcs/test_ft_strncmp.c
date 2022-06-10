@@ -28,12 +28,22 @@ void	test_non_ascii_string_are_different(void)
 	ASSERT_EXPR(result == expected);
 }
 
+void	test_return_zero_when_n_is_zero(void)
+{
+	char	s1[] = {'A', 'B', 10};
+	char	*s2 = "AB";
+	int		result = ft_strncmp(s1, s2, 0);
+	int		expected = strncmp(s1, s2, 0);
+	ASSERT_EXPR(result == expected);
+}
+
 int	main(void)
 {
 	t_unit_test tests[] = {
 		UNIT_TEST(test_ascii_string_are_equal),
 		UNIT_TEST(test_ascii_string_are_different),
 		UNIT_TEST(test_non_ascii_string_are_different),
+		UNIT_TEST(test_return_zero_when_n_is_zero),
 	};
 	return RUN_GROUP(tests);
 }
