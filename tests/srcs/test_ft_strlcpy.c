@@ -22,11 +22,22 @@ void	test_return_length(void)
 	ASSERT_EXPR(ret_res == ret_exp);
 }
 
+void	test_return_length_when_size_is_zero(void)
+{
+	char	*test = "teste";
+	char	result[10];
+	char	expected[10];
+	size_t	ret_res = ft_strlcpy(result, test, 0);
+	size_t	ret_exp = strlcpy(expected, test, 0);
+	ASSERT_EXPR(ret_res == ret_exp);
+}
+
 int	main(void)
 {
 	t_unit_test tests[] = {
 		UNIT_TEST(test_copy_string),
 		UNIT_TEST(test_return_length),
+		UNIT_TEST(test_return_length_when_size_is_zero),
 	};
 	return RUN_GROUP(tests);
 }
