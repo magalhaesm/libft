@@ -49,6 +49,18 @@ void	test_return_null_when_search_in_a_empty_string(void)
 	ASSERT_EXPR(result == expected);
 }
 
+void	test_return_null_when_just_part_of_string_is_found(void)
+{
+	const char	*large = "gtagtatatatatatactactagtag";
+	const char	*small = "ctag";
+	char	*result;
+	char	*expected;
+
+	result = ft_strnstr(large, small, 22);
+	expected = strnstr(large, small, 22);
+	ASSERT_EXPR(result == expected);
+}
+
 int	main(void)
 {
 	t_unit_test tests[] = {
@@ -56,6 +68,7 @@ int	main(void)
 		UNIT_TEST(test_locate_the_first_occurrence_of_a_string),
 		UNIT_TEST(test_return_null_when_the_searched_string_is_empty),
 		UNIT_TEST(test_return_null_when_search_in_a_empty_string),
+		UNIT_TEST(test_return_null_when_just_part_of_string_is_found),
 	};
 	return RUN_GROUP(tests);
 }
