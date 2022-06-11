@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:51:04 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/11 14:54:26 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:47:26 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s)
 	size_t	len;
 
 	len = ft_strlen(s) + 1;
-	dup = ft_calloc(len, sizeof(char));
+	dup = malloc(len * sizeof(char));
 	if (!dup)
 		return (NULL);
 	ft_strlcpy(dup, s, len);
