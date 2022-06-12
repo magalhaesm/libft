@@ -13,7 +13,7 @@ RM			= rm -f
 MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 				strlen strchr strrchr strncmp strlcpy strlcat strnstr \
 				memset bzero memcpy memmove memchr memcmp atoi calloc strdup \
-				substr strjoin
+				substr strjoin strtrim
 
 all: fclean $(MANDATORY)
 		@make clean >/dev/null
