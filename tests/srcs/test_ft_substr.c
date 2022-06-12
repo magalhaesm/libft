@@ -29,12 +29,25 @@ void	test_start_beyond_string_length(void)
 	free(result);
 }
 
+void	test_allocated_size(void)
+{
+	char	*string = "Lorem ipsum dolor sit amet.";
+	char	*result = ft_substr(string, 0, 1000);
+	char	*size_needed = malloc(strlen(string) + 1);
+	int		allocated = malloc_usable_size(result);
+	int		expected = malloc_usable_size(size_needed);
+	ASSERT_EXPR(allocated == expected);
+	free(result);
+	free(size_needed);
+}
+
 int	main(void)
 {
 	t_unit_test tests[] = {
 		UNIT_TEST(test_return_a_substring),
 		UNIT_TEST(test_return_just_a_char_in_a_string),
 		UNIT_TEST(test_start_beyond_string_length),
+		UNIT_TEST(test_allocated_size),
 	};
 	return RUN_GROUP(tests);
 }
