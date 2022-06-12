@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:46:19 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/11 18:26:42 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/12 11:08:22 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
+	size_t	strlen;
 
+	strlen = ft_strlen(s);
+	if (start >= strlen)
+		return (ft_strdup(""));
 	sub = malloc((++len) * sizeof(char));
 	if (!sub)
 		return (NULL);
