@@ -16,7 +16,7 @@ void	test_memory_area_are_not_equal(void)
 	char	*s2 = "AB";
 	int		result = ft_memcmp(s1, s2, 3);
 	int		expected = memcmp(s1, s2, 3);
-	ASSERT_EXPR(result == expected);
+	ASSERT_EXPR((result > 0) && (expected > 0));
 }
 
 void	test_memory_area_with_nulls(void)
