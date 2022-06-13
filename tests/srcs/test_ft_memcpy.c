@@ -4,13 +4,13 @@
 void	test_copy_to_memory_area(void)
 {
 	char	*test = "string de teste";
-	int		testlen = strlen(test);
+	int		testlen = strlen(test) + 1;
 	char	result[50];
 	char	expected[50];
 
-	ft_memcpy(result, test, testlen);
 	memcpy(expected, test, testlen);
-	ASSERT_EXPR(strcmp(result, expected) == 0);
+	ft_memcpy(result, test, testlen);
+	ASSERT_EXPR(!memcmp(result, expected, testlen));
 }
 
 int	main(void)
