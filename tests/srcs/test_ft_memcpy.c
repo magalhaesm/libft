@@ -4,7 +4,7 @@
 void	test_copy_to_memory_area(void)
 {
 	char	*test = "string de teste";
-	int		testlen = strlen(test) + 1;
+	int		testlen = strlen(test);
 	char	result[50];
 	char	expected[50];
 
