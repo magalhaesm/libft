@@ -21,11 +21,22 @@ void	test_trim_all_string(void)
 	free(result);
 }
 
+void	test_empty_set(void)
+{
+	char	*string = "lorem ipsum";
+	char	*set = "";
+	char	*result = ft_strtrim(string, set);
+	char	*expected = "lorem ipsum";
+	ASSERT_EXPR(!strcmp(result, expected));
+	free(result);
+}
+
 int	main(void)
 {
 	t_unit_test tests[] = {
 		UNIT_TEST(test_return_a_trimmed_string),
 		UNIT_TEST(test_trim_all_string),
+		UNIT_TEST(test_empty_set),
 	};
 	return RUN_GROUP(tests);
 }
