@@ -15,7 +15,7 @@ MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 				memset bzero memcpy memmove memchr memcmp atoi calloc strdup \
 				substr strjoin
 
-all: $(MANDATORY)
+all: fclean $(MANDATORY)
 		@make clean >/dev/null
 
 $(MANDATORY):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
