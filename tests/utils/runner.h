@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <limits.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
 # define RED					"\033[31m"
 # define RESET					"\033[m"
@@ -46,5 +49,7 @@ int		run_units(t_unit_test tests[], int num_tests, char *filename);
 int		print_result(t_session *session);
 
 void	free_arr(char **arr);
+int		mktmpfd(void);
+char	*get_output(int fd);
 
 #endif

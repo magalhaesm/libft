@@ -1,6 +1,8 @@
 #include "runner.h"
 
 t_unit_test *g_test;
+char	g_output[1024];
+char	tmpfilename[] = "test.output";
 
 void	test_assert(int condition, int line)
 {
@@ -70,4 +72,21 @@ void	free_arr(char **arr)
 	for (int i = 0; arr[i] != NULL; ++i)
 		free(arr[i]);
 	free(arr);
+}
+
+int	mktmpfd(void)
+{
+	return (open(tmpfilename, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR));
+}
+
+char	*get_output(int fd)
+{
+	struct stat	buffer;
+
+	lseek(fd, SEEK_SET, 0);
+	fstat(fd, &buffer);
+	read(fd, &g_output, buffer.st_size);
+	g_output[buffer.st_size] = '\0';
+	remove(tmpfilename);
+	return (g_output);
 }
