@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:06:26 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/06 15:41:51 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/18 10:54:43 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*aux;
+	t_byte	*aux;
 
 	aux = s;
 	while (n--)
