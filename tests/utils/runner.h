@@ -45,4 +45,6 @@ void	test_runner(t_unit_test *new_test);
 int		run_units(t_unit_test tests[], int num_tests, char *filename);
 int		print_result(t_session *session);
 
+void	free_arr(char **arr);
+
 #endif
