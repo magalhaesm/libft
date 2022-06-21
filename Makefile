@@ -16,11 +16,23 @@ MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 				substr strjoin strtrim split itoa strmapi striteri \
 				putchar_fd putstr_fd putendl_fd putnbr_fd
 
-all: $(MANDATORY)
+BONUS	= lstnew lstadd_front lstsize
+
+all: $(MANDATORY) $(BONUS)
+		@make clean >/dev/null
+
+mandatory: $(MANDATORY)
+		@make clean >/dev/null
+
+bonus: $(BONUS)
 		@make clean >/dev/null
 
 $(MANDATORY):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
 		@$(CC) $(CFLAGS) $^ -lbsd -o $@
+		@./$@
+
+$(BONUS):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
+		@$(CC) $(CFLAGS) $^ -o $@
 		@./$@
 
 $(LIB):
