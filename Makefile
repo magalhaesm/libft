@@ -16,7 +16,8 @@ MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 				substr strjoin strtrim split itoa strmapi striteri \
 				putchar_fd putstr_fd putendl_fd putnbr_fd
 
-BONUS	= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone
+BONUS	= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone \
+				lstclear lstiter
 
 all: $(MANDATORY) $(BONUS)
 		@make clean >/dev/null
