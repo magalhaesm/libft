@@ -7,7 +7,7 @@ UTIL_SRC	= $(wildcard tests/utils/*.c)
 UTIL_OBJ	= $(subst tests/utils, $(OBJS), $(UTIL_SRC:.c=.o))
 
 CC			= gcc
-CFLAGS		= -g -Wall -Wextra -Werror
+CFLAGS		= -g -fsanitize=address -Wall -Wextra -Werror
 RM			= rm -f
 
 MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
@@ -16,7 +16,7 @@ MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 				substr strjoin strtrim split itoa strmapi striteri \
 				putchar_fd putstr_fd putendl_fd putnbr_fd
 
-BONUS	= lstnew lstadd_front lstsize
+BONUS	= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone
 
 all: $(MANDATORY) $(BONUS)
 		@make clean >/dev/null

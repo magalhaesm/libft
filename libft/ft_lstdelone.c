@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:38:05 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/19 09:50:02 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/22 15:14:32 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,4 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	del(lst->content);
 	free(lst);
-	lst = NULL;
 }
