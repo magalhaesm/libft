@@ -17,7 +17,7 @@ MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 				putchar_fd putstr_fd putendl_fd putnbr_fd
 
 BONUS	= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone \
-				lstclear lstiter
+				lstclear lstiter lstmap
 
 all: $(MANDATORY) $(BONUS)
 		@make clean >/dev/null
