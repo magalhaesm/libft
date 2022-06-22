@@ -6,7 +6,7 @@
 /*   By: mdias-ma <mdias-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:26:20 by mdias-ma          #+#    #+#             */
-/*   Updated: 2022/06/20 14:53:29 by mdias-ma         ###   ########.fr       */
+/*   Updated: 2022/06/22 11:27:59 by mdias-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**ft_split(char const *s, char c)
 	char	**str_arr;
 
 	words = count_words(s, c);
-	str_arr = malloc((words + 1) * sizeof(char *));
+	str_arr = malloc((words + 1) * sizeof(*str_arr));
 	if (!str_arr)
 		return (NULL);
 	cut_words(s, c, str_arr, words);
