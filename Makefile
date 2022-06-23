@@ -29,10 +29,12 @@ bonus: init_bonus $(BONUS)
 		@make clean >/dev/null
 
 init_mandatory:
-	@echo -e "\n==> MANDATORY PART"
+		@echo
+		@echo "==> MANDATORY PART"
 
 init_bonus:
-		@echo -e "\n==> BONUS PART"
+		@echo
+		@echo "==> BONUS PART"
 
 $(MANDATORY):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
 		@$(CC) $(CFLAGS) $^ -lbsd -o $@
