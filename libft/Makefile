@@ -14,7 +14,7 @@ BONUS		= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c            \
 
 OBJDIR		= objs
 OBJS		= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
-OBJS		+= $(addprefix $(OBJDIR)/, $(BONUS:.c=.o))
+OBJS_BONUS		= $(addprefix $(OBJDIR)/, $(BONUS:.c=.o))
 
 CC			= cc
 CFLAGS		= -g -Wall -Wextra -Werror
@@ -22,7 +22,9 @@ RM			= rm -f
 
 all:		$(NAME)
 
-bonus:		$(NAME)
+bonus:		$(NAME) $(OBJS_BONUS)
+		ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+		ranlib $(NAME)
 
 $(NAME):	$(OBJS)
 		ar -rcs $(NAME) $(OBJS)

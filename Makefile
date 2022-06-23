@@ -19,20 +19,27 @@ MANDATORY	= isalpha toupper isdigit tolower isalnum isascii isprint \
 BONUS	= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone \
 				lstclear lstiter lstmap
 
-all: $(MANDATORY) $(BONUS)
+all: mandatory bonus
 		@make clean >/dev/null
 
-mandatory: $(MANDATORY)
+mandatory: init_mandatory $(MANDATORY)
 		@make clean >/dev/null
 
-bonus: $(BONUS)
+bonus: init_bonus $(BONUS)
 		@make clean >/dev/null
+
+init_mandatory:
+	@echo -e "\n==> MANDATORY PART"
+
+init_bonus:
+		@echo -e "\n==> BONUS PART"
 
 $(MANDATORY):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
 		@$(CC) $(CFLAGS) $^ -lbsd -o $@
 		@./$@
 
 $(BONUS):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
+		@make bonus -C $(LIBFT) >/dev/null
 		@$(CC) $(CFLAGS) $^ -o $@
 		@./$@
 
@@ -57,4 +64,4 @@ fclean:	clean
 
 re:		fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re .ONESHELL
