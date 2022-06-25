@@ -22,12 +22,12 @@ RM			= rm -f
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
-		ar -rcs $(NAME) $(OBJS)
+bonus:		$(OBJS) $(OBJS_BONUS)
+		ar -rcs $(NAME) $^
 		ranlib $(NAME)
 
-bonus:		$(NAME) $(OBJS_BONUS)
-		ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+$(NAME):	$(OBJS)
+		ar -rcs $(NAME) $(OBJS)
 		ranlib $(NAME)
 
 $(OBJDIR)/%.o:	%.c
@@ -40,7 +40,8 @@ clean:
 
 fclean:		clean
 		$(RM) $(NAME)
+		$(RM) $(NAME_BONUS)
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re bonus

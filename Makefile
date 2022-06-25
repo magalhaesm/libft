@@ -41,7 +41,6 @@ $(MANDATORY):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
 		@./$@
 
 $(BONUS):	%:	$(OBJS)/test_ft_%.o $(UTIL_OBJ) $(LIB)
-		@make bonus -C $(LIBFT) >/dev/null
 		@$(CC) $(CFLAGS) $^ -o $@
 		@./$@
 
@@ -66,4 +65,4 @@ fclean:	clean
 
 re:		fclean all
 
-.PHONY:		all clean fclean re .ONESHELL
+.PHONY:		all clean fclean re
