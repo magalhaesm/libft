@@ -40,7 +40,6 @@ clean:
 
 fclean:		clean
 		$(RM) $(NAME)
-		$(RM) $(NAME_BONUS)
 
 re:			fclean all
 
