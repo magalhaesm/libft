@@ -16,23 +16,21 @@ OBJDIR		= objs
 OBJS		= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 OBJS_BONUS	= $(addprefix $(OBJDIR)/, $(BONUS:.c=.o))
 
-CC			= cc
-CFLAGS		= -g -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 
 all:		$(NAME)
 
-bonus:		$(OBJS) $(OBJS_BONUS)
-		ar -rcs $(NAME) $^
-		ranlib $(NAME)
+$(NAME):	$(OBJDIR) $(OBJS)
 
-$(NAME):	$(OBJS)
-		ar -rcs $(NAME) $(OBJS)
-		ranlib $(NAME)
+bonus:		$(OBJDIR) $(OBJS) $(OBJS_BONUS)
+
+$(OBJDIR):
+		mkdir -p $(OBJDIR)
 
 $(OBJDIR)/%.o:	%.c
-		@mkdir -p $(OBJDIR)
 		$(CC) $(CFLAGS) -c $< -o $@
+		ar -rcs $(NAME) $@
 
 clean:
 		$(RM) $(OBJS)
